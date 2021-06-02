@@ -41,6 +41,7 @@ class SplashScreen extends StatelessWidget {
           isRepeatingAnimation: true,
           onTap: () {
             print("Tap Event");
+            print("Hello World");
           },
         ),
           ],
