@@ -13,18 +13,19 @@ class SplashScreen extends StatelessWidget {
 
     const colorizeTextStyle = TextStyle(
       fontSize: 30.0,
-      fontFamily: 'Horizon',
+      fontFamily: 'Lato',
     );
 
 
 
     // TODO: implement build
     return Scaffold(
+      backgroundColor: Colors.cyan.shade900,
       body: Center(
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Image.asset('assets/images/lgo.jpg',
+            Image.asset('assets/images/logo.png',
               color: Colors.white,
             ),
             SizedBox(height: 10,),
@@ -41,7 +42,7 @@ class SplashScreen extends StatelessWidget {
           isRepeatingAnimation: true,
           onTap: () {
             print("Tap Event");
-            print("Hello World");
+
           },
         ),
           ],
