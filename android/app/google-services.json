@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "451440312342",
+    "project_id": "thriftbooks-5d11e",
+    "storage_bucket": "thriftbooks-5d11e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:451440312342:android:62b030db8eb65c7ff73537",
+        "android_client_info": {
+          "package_name": "com.example.thrift_books"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "451440312342-783kqebev6fddog2etu1frrku0epqsgu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBtff7q4LXqEHIEpkN9yVg9N07j7TjeN_4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "451440312342-783kqebev6fddog2etu1frrku0epqsgu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
