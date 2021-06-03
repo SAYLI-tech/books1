@@ -28,6 +28,9 @@ class MyApp extends StatelessWidget {
               fontFamily: 'Lato'
             ),
             home: LoginScreen(),
+            routes:{
+              //we will add the screens here for easy navigation
+            },
           );
         }
       },

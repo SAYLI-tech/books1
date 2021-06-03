@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:thrift_books/widgets/auth_ui.dart';
 
 class LoginScreen extends StatelessWidget {
+
   @override
   Widget build(BuildContext context){
     return Scaffold(
