@@ -1,7 +1,47 @@
-import 'package:animated_text_kit/animated_text_kit.dart';
-import 'package:flutter/material.dart';
+import 'dart:async';
 
-class SplashScreen extends StatelessWidget {
+import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
+import 'package:thrift_books/screens/login_screen.dart';
+
+import 'location_screen.dart';
+
+class SplashScreen extends StatefulWidget {
+
+  static const String id = 'splash-screen';
+
+  @override
+  _SplashScreenState createState() => _SplashScreenState();
+}
+
+class _SplashScreenState extends State<SplashScreen> {
+
+  @override
+  void initState(){
+
+    Timer(
+      Duration(
+        seconds: 3,
+
+      ),() { //Duration
+      FirebaseAuth.instance.authStateChanges().listen((User user) {
+        if (user == null) {
+          // not signed in
+          Navigator.pushReplacementNamed(context, LoginScreen.id);
+        } else {
+          //if user has data in firestore check delivery address set or not
+          // signed in
+          Navigator.pushReplacementNamed(context, LocationScreen.id);
+        }
+      }
+      );
+    });
+    super.initState();
+  }
+
+
+
   @override
   Widget build(BuildContext context) {
 

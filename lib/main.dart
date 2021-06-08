@@ -1,6 +1,8 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:thrift_books/screens/authentication/phoneauthscreen.dart';
+import 'package:thrift_books/screens/home_screen.dart';
+import 'package:thrift_books/screens/location_screen.dart';
 import 'package:thrift_books/screens/login_screen.dart';
 import 'package:thrift_books/screens/splash_screen.dart';
 
@@ -14,7 +16,28 @@ void main() async{
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context){
-    return FutureBuilder(
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        primaryColor: Colors.cyan.shade900,
+        fontFamily: 'Lato'
+      ),
+      initialRoute: SplashScreen.id,
+      routes: {
+        SplashScreen.id: (context) => SplashScreen(),
+        LoginScreen.id: (context) => LoginScreen(),
+        PhoneAuthScreen.id: (context) => PhoneAuthScreen(),
+        LocationScreen.id: (context) => LocationScreen(),
+        HomeScreen.id: (context) => HomeScreen(),
+
+      },
+    );
+
+
+
+
+
+      /*FutureBuilder(
       // Replace the 3 second delay with your initialization code:
       future: Future.delayed(Duration(seconds: 6)),  //after three seconds screen will move to next screen
       builder: (context, AsyncSnapshot snapshot) {
@@ -45,11 +68,12 @@ class MyApp extends StatelessWidget {
           //its a string
           LoginScreen.id: (context) => LoginScreen(),
           PhoneAuthScreen.id: (context) => PhoneAuthScreen(),
+          LocationScreen.id: (context) => LocationScreen(),
 
         },
       );
     }
     },
-    );
+    ) */;
   }
 }

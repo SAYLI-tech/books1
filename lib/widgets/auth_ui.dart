@@ -1,6 +1,13 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_signin_button/flutter_signin_button.dart';
+import 'package:thrift_books/screens/authentication/google_auth.dart';
 import 'package:thrift_books/screens/authentication/phoneauthscreen.dart';
+import 'package:thrift_books/services/phoneauth_service.dart';
+import '../screens/authentication/google_auth.dart';
+
+
+
 
 class AuthUi extends StatelessWidget {
   @override
@@ -13,9 +20,13 @@ class AuthUi extends StatelessWidget {
           SizedBox(
             width:220,
             child: ElevatedButton(
-                style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(Colors.white)
-                ),
+                style: ElevatedButton.styleFrom(
+                  primary: Colors.white,
+                  shape: new RoundedRectangleBorder(
+                  borderRadius: new BorderRadius.circular(3.0),
+                ),),
+
+
                 onPressed: ()
                 {
                   //now u can easily navigate to phone auth screen
@@ -32,7 +43,17 @@ class AuthUi extends StatelessWidget {
           SignInButton(
             Buttons.Google,
             text: ('Continue with Google'),
-            onPressed: (){},
+            onPressed: () async{
+
+              User user = await GoogleAuthentication.signInWithGoogle(context: context);
+              if(user!=null){
+                //login success
+
+                PhoneAuthService _authentication = PhoneAuthService();
+                _authentication.addUser(context, user.uid);
+              }
+
+            },
           ),
           SignInButton(
             Buttons.FacebookNew,
