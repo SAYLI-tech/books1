@@ -38,7 +38,9 @@ class EmailAuthentication{
           email: email,
           password: password
       );
-
+      if(userCredential.user.uid != null){
+        Navigator.pushReplacementNamed(context, LocationScreen.id);
+      }
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
         ScaffoldMessenger.of(context).showSnackBar(
