@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_signin_button/flutter_signin_button.dart';
+import 'package:thrift_books/screens/authentication/email_auth_screen.dart';
 import 'package:thrift_books/screens/authentication/google_auth.dart';
 import 'package:thrift_books/screens/authentication/phoneauthscreen.dart';
 import 'package:thrift_books/services/phoneauth_service.dart';
@@ -33,7 +34,7 @@ class AuthUi extends StatelessWidget {
                   Navigator.pushNamed(context, PhoneAuthScreen.id);
 
                 }, child: Row(
-              children: [
+                children: [
                 Icon(Icons.phone_android_outlined,color: Colors.black,),
                 SizedBox(width: 8,),
                 Text('Continue with Phone',style: TextStyle(color: Colors.black),),
@@ -60,16 +61,30 @@ class AuthUi extends StatelessWidget {
             text: ('Continue with Facebook'),
             onPressed: (){},
           ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text(
-              'Login with Email',
-              style: TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                  decoration: TextDecoration.underline),
+
+          // if you want to add onPressed to container
+          InkWell(
+            onTap: (){
+              Navigator.pushNamed(context, EmailAuthScreen.id
+              );
+            },
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Container(
+                child: Text(
+                  'Login with email',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 18,
+
+                  ),
+                ),
+                decoration: BoxDecoration(
+                  border: Border(bottom: BorderSide(color: Colors.white))
+                )
               ),
-          ),
+            ),
+          )
 
 
         ],
