@@ -1,6 +1,7 @@
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:thrift_books/screens/authentication/reset_password_screen.dart';
 import 'package:thrift_books/services/emailAuth_service.dart';
 
 
@@ -46,6 +47,7 @@ class _EmailAuthScreenState extends State<EmailAuthScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         elevation: 1, //shadow for appbar
         backgroundColor: Colors.white,
@@ -109,6 +111,7 @@ class _EmailAuthScreenState extends State<EmailAuthScreen> {
               ),
               SizedBox(height: 10,),
               TextFormField(
+                obscureText: true,
                 controller: _passwordController,
                 decoration: InputDecoration(
                   suffixIcon: _validate
@@ -144,7 +147,17 @@ class _EmailAuthScreenState extends State<EmailAuthScreen> {
                   }
                 },
               ),
-              SizedBox(height: 10,),
+
+              Align(
+                  alignment: Alignment.centerRight,
+                  child: TextButton(
+                    child:Text('Forgot password?',
+                    style: TextStyle(fontWeight: FontWeight.bold,color: Colors.blue),),
+                    onPressed: (){
+                      Navigator.pushNamed(context, PasswordRestScreen.id);
+                    },
+                  ),
+              ),
               Row(
                 children: [
                   Text(_login ? 'New account ?' : 'Already has an account?'),

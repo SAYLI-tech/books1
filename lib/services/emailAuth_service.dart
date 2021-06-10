@@ -3,6 +3,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:thrift_books/screens/authentication/email_verification_screen.dart';
 import 'package:thrift_books/screens/location_screen.dart';
 
 class EmailAuthentication{
@@ -73,8 +74,16 @@ class EmailAuthentication{
           'uid' : userCredential.user.uid,
           'mobile' : null,
           'email' : userCredential.user.email
-        }).then((value) {
-          Navigator.pushReplacementNamed(context, LocationScreen.id);
+        }).then((value) async {
+
+         //before going to location screen,will send email verification
+            await userCredential.user.sendEmailVerification().then((value){
+              //after sending verification email , screen will move to Email-Verification screen
+              Navigator.pushReplacementNamed(context, EmailVerificationScreen.id);
+            });
+
+
+          //Navigator.pushReplacementNamed(context, LocationScreen.id);
         }).catchError((onError){
           ScaffoldMessenger.of(context).showSnackBar(
             const SnackBar(

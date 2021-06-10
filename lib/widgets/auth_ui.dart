@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_signin_button/flutter_signin_button.dart';
 import 'package:thrift_books/screens/authentication/email_auth_screen.dart';
+import 'package:thrift_books/screens/authentication/email_verification_screen.dart';
 import 'package:thrift_books/screens/authentication/google_auth.dart';
 import 'package:thrift_books/screens/authentication/phoneauthscreen.dart';
 import 'package:thrift_books/services/phoneauth_service.dart';
@@ -25,7 +26,8 @@ class AuthUi extends StatelessWidget {
                   primary: Colors.white,
                   shape: new RoundedRectangleBorder(
                   borderRadius: new BorderRadius.circular(3.0),
-                ),),
+                ),
+                ),
 
 
                 onPressed: ()
@@ -65,8 +67,9 @@ class AuthUi extends StatelessWidget {
           // if you want to add onPressed to container
           InkWell(
             onTap: (){
-              Navigator.pushNamed(context, EmailAuthScreen.id
-              );
+              Navigator.pushNamed(context, EmailAuthScreen.id);
+              //before add new user , lets design verification screen
+
             },
             child: Padding(
               padding: const EdgeInsets.all(8.0),

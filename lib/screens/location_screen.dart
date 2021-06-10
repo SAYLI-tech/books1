@@ -1,7 +1,10 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:location/location.dart';
 import 'package:thrift_books/screens/home_screen.dart';
+
+import 'login_screen.dart';
 
 class LocationScreen extends StatefulWidget {
   static const String id = 'location-screen';
@@ -98,6 +101,7 @@ class _LocationScreenState extends State<LocationScreen> {
                       ),
                     ),
                     onPressed: (){
+
                         setState(() {
                           _loading = true;
                         });
@@ -110,9 +114,8 @@ class _LocationScreenState extends State<LocationScreen> {
 
 
                         }
-                      }
-                      );
-                    },
+                      });
+                      },
                     ),
                 ),
               ],
