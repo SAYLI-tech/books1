@@ -49,7 +49,7 @@ class _LocationScreenState extends State<LocationScreen> {
 
         _locationData = await location.getLocation();
      
-      print(_locationData);
+   print(_locationData);
 
     return _locationData;
 
@@ -58,6 +58,7 @@ class _LocationScreenState extends State<LocationScreen> {
 
   @override
   Widget build(BuildContext context) {
+
 
     showBottomSheet(context){
       showModalBottomSheet(
